@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5106687C22FAFE770051ACAA /* SobreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5106687B22FAFE770051ACAA /* SobreViewController.swift */; };
 		51D25A8D22FADE7C00D48002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D25A8C22FADE7C00D48002 /* AppDelegate.swift */; };
-		51D25A8F22FADE7C00D48002 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D25A8E22FADE7C00D48002 /* ViewController.swift */; };
 		51D25A9222FADE7C00D48002 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D25A9022FADE7C00D48002 /* Main.storyboard */; };
 		51D25A9422FADE7E00D48002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D25A9322FADE7E00D48002 /* Assets.xcassets */; };
 		51D25A9722FADE7E00D48002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D25A9522FADE7E00D48002 /* LaunchScreen.storyboard */; };
+		51D25AA122FAF8FC00D48002 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D25AA022FAF8FC00D48002 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5106687B22FAFE770051ACAA /* SobreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreViewController.swift; sourceTree = "<group>"; };
 		51D25A8922FADE7C00D48002 /* aLodjinha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aLodjinha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D25A8C22FADE7C00D48002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		51D25A8E22FADE7C00D48002 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		51D25A9122FADE7C00D48002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51D25A9322FADE7E00D48002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51D25A9622FADE7E00D48002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51D25A9822FADE7E00D48002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51D25AA022FAF8FC00D48002 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				51D25A8C22FADE7C00D48002 /* AppDelegate.swift */,
-				51D25A8E22FADE7C00D48002 /* ViewController.swift */,
+				51D25AA022FAF8FC00D48002 /* HomeViewController.swift */,
+				5106687B22FAFE770051ACAA /* SobreViewController.swift */,
 				51D25A9022FADE7C00D48002 /* Main.storyboard */,
 				51D25A9322FADE7E00D48002 /* Assets.xcassets */,
 				51D25A9522FADE7E00D48002 /* LaunchScreen.storyboard */,
@@ -135,8 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51D25A8F22FADE7C00D48002 /* ViewController.swift in Sources */,
+				5106687C22FAFE770051ACAA /* SobreViewController.swift in Sources */,
 				51D25A8D22FADE7C00D48002 /* AppDelegate.swift in Sources */,
+				51D25AA122FAF8FC00D48002 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D77W63ZAL8;
 				INFOPLIST_FILE = aLodjinha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +308,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D77W63ZAL8;
 				INFOPLIST_FILE = aLodjinha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
