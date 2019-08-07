@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5106687C22FAFE770051ACAA /* SobreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5106687B22FAFE770051ACAA /* SobreViewController.swift */; };
+		5106688A22FB3BB10051ACAA /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5106688922FB3BAE0051ACAA /* Pacifico-Regular.ttf */; };
 		51D25A8D22FADE7C00D48002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D25A8C22FADE7C00D48002 /* AppDelegate.swift */; };
 		51D25A9222FADE7C00D48002 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D25A9022FADE7C00D48002 /* Main.storyboard */; };
 		51D25A9422FADE7E00D48002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D25A9322FADE7E00D48002 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		5106687B22FAFE770051ACAA /* SobreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreViewController.swift; sourceTree = "<group>"; };
+		5106688922FB3BAE0051ACAA /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		51D25A8922FADE7C00D48002 /* aLodjinha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aLodjinha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D25A8C22FADE7C00D48002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51D25A9122FADE7C00D48002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5106688822FB3B980051ACAA /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5106688922FB3BAE0051ACAA /* Pacifico-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		51D25A8022FADE7C00D48002 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 				5106687B22FAFE770051ACAA /* SobreViewController.swift */,
 				51D25A9022FADE7C00D48002 /* Main.storyboard */,
 				51D25A9322FADE7E00D48002 /* Assets.xcassets */,
+				5106688822FB3B980051ACAA /* fonts */,
 				51D25A9522FADE7E00D48002 /* LaunchScreen.storyboard */,
 				51D25A9822FADE7E00D48002 /* Info.plist */,
 			);
@@ -126,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51D25A9722FADE7E00D48002 /* LaunchScreen.storyboard in Resources */,
+				5106688A22FB3BB10051ACAA /* Pacifico-Regular.ttf in Resources */,
 				51D25A9422FADE7E00D48002 /* Assets.xcassets in Resources */,
 				51D25A9222FADE7C00D48002 /* Main.storyboard in Resources */,
 			);

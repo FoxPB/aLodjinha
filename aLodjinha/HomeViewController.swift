@@ -13,8 +13,15 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        LogoNavigationBar()
+        
     }
     
-
+    //
+    private func LogoNavigationBar(){
+        let logo = #imageLiteral(resourceName: "logoNavbar_2")
+        let logoView = UIImageView(image: logo)
+        self.navigationItem.titleView = logoView
+    }
 
 }

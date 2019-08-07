@@ -9,18 +9,73 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pacifico-Regular.ttf">
+            <string>Pacifico-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Sobre View Controller-->
+        <!--Sobre-->
         <scene sceneID="1D8-8Q-jlZ">
             <objects>
                 <viewController id="Dg9-UC-1pH" customClass="SobreViewController" customModule="aLodjinha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pPI-1S-hPj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a Lodjinha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7d-eI-ObQ">
+                                <rect key="frame" x="74" y="351" width="266" height="106"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="266" id="9lf-tG-Obr"/>
+                                    <constraint firstAttribute="height" constant="106" id="rGV-39-HWX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Pacifico-Regular" family="Pacifico" pointSize="60"/>
+                                <color key="textColor" red="0.29016065600000002" green="0.29021644590000001" blue="0.29015710950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoSobre_3" translatesAutoresizingMaskIntoConstraints="NO" id="fHZ-je-aOa">
+                                <rect key="frame" x="74" y="154" width="266" height="189"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="266" id="NxH-3c-Foc"/>
+                                    <constraint firstAttribute="height" constant="189" id="mo4-lq-i52"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ricardo Caldeira de Andrade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjQ-xG-J2q">
+                                <rect key="frame" x="97.5" y="661" width="219" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2j1-ZI-0TJ"/>
+                                    <constraint firstAttribute="width" constant="219" id="Ooa-yi-CiO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.29016065600000002" green="0.29021644590000001" blue="0.29015710950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07 de Agosto de 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po0-QU-Ri3">
+                                <rect key="frame" x="123" y="690" width="168" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="QPd-ey-Wb6"/>
+                                    <constraint firstAttribute="width" constant="168" id="eKD-YA-HgD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="po0-QU-Ri3" firstAttribute="centerX" secondItem="pPI-1S-hPj" secondAttribute="centerX" id="0cc-5c-qWS"/>
+                            <constraint firstItem="po0-QU-Ri3" firstAttribute="top" secondItem="hjQ-xG-J2q" secondAttribute="bottom" constant="8" id="2d1-WH-uMz"/>
+                            <constraint firstItem="hjQ-xG-J2q" firstAttribute="centerX" secondItem="pPI-1S-hPj" secondAttribute="centerX" id="9Gq-Wo-XzW"/>
+                            <constraint firstItem="q7d-eI-ObQ" firstAttribute="centerX" secondItem="pPI-1S-hPj" secondAttribute="centerX" id="QHl-dy-AfQ"/>
+                            <constraint firstItem="3P0-kU-gwc" firstAttribute="bottom" secondItem="po0-QU-Ri3" secondAttribute="bottom" constant="14" id="SsO-c6-jiK"/>
+                            <constraint firstItem="q7d-eI-ObQ" firstAttribute="centerY" secondItem="pPI-1S-hPj" secondAttribute="centerY" id="Yjk-o9-Pmy"/>
+                            <constraint firstItem="q7d-eI-ObQ" firstAttribute="top" secondItem="fHZ-je-aOa" secondAttribute="bottom" constant="8" id="Z9x-oA-3Ug"/>
+                            <constraint firstItem="3P0-kU-gwc" firstAttribute="trailing" secondItem="fHZ-je-aOa" secondAttribute="trailing" constant="74" id="aL4-LV-OXW"/>
+                            <constraint firstItem="fHZ-je-aOa" firstAttribute="leading" secondItem="3P0-kU-gwc" secondAttribute="leading" constant="74" id="l7c-Vu-qO1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3P0-kU-gwc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YEr-If-q2a"/>
+                    <navigationItem key="navigationItem" title="Sobre" id="YEr-If-q2a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xw7-Ym-s0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,6 +145,9 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.41400757431983948" green="0.24369609355926514" blue="0.56820958852767944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -103,6 +161,7 @@
     </scenes>
     <resources>
         <image name="homeActive_2" width="25" height="23"/>
+        <image name="logoSobre_3" width="215" height="228"/>
         <image name="tagSelected_2" width="25" height="25"/>
     </resources>
 </document>
