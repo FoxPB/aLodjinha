@@ -18,7 +18,7 @@
         <!--Sobre-->
         <scene sceneID="1D8-8Q-jlZ">
             <objects>
-                <viewController id="Dg9-UC-1pH" customClass="SobreViewController" customModule="aLodjinha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dg9-UC-1pH" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pPI-1S-hPj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="width" constant="266" id="9lf-tG-Obr"/>
                                     <constraint firstAttribute="height" constant="106" id="rGV-39-HWX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Pacifico-Regular" family="Pacifico" pointSize="60"/>
+                                <fontDescription key="fontDescription" name="Pacifico-Regular" family="Pacifico" pointSize="55"/>
                                 <color key="textColor" red="0.29016065600000002" green="0.29021644590000001" blue="0.29015710950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -88,14 +88,73 @@
                     <view key="view" contentMode="scaleToFill" id="1sc-HM-XZN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aW-9R-g86">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="143"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1aW-9R-g86" secondAttribute="height" multiplier="414:143" id="id7-tG-KbX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1aW-9R-g86" firstAttribute="trailing" secondItem="Md0-Li-rN5" secondAttribute="trailing" id="7qI-ab-l23"/>
+                            <constraint firstItem="1aW-9R-g86" firstAttribute="leading" secondItem="Md0-Li-rN5" secondAttribute="leading" id="PFX-ck-o9v"/>
+                            <constraint firstItem="1aW-9R-g86" firstAttribute="top" secondItem="Md0-Li-rN5" secondAttribute="top" id="j1X-zj-0i1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Md0-Li-rN5"/>
                     </view>
                     <navigationItem key="navigationItem" id="zJT-ca-Q52"/>
+                    <connections>
+                        <outlet property="contentView" destination="1aW-9R-g86" id="SmF-ya-dIe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZU-Sh-1G0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2155.072463768116" y="-482.14285714285711"/>
+        </scene>
+        <!--Data Banner View Controller-->
+        <scene sceneID="1zE-mC-uQn">
+            <objects>
+                <viewController storyboardIdentifier="DataBannerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="waN-Xm-oRU" customClass="DataBannerViewController" customModule="aLodjinha" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sT3-GB-CPx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxE-DC-Zfl">
+                                <rect key="frame" x="0.0" y="84" width="414" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AxE-DC-Zfl" secondAttribute="height" multiplier="23:2" id="Rxd-O9-5yr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AxE-DC-Zfl" firstAttribute="top" secondItem="XoB-lR-2bH" secondAttribute="top" constant="40" id="Ghw-Uf-sJy"/>
+                            <constraint firstItem="XoB-lR-2bH" firstAttribute="trailing" secondItem="AxE-DC-Zfl" secondAttribute="trailing" id="dAu-pz-ANs"/>
+                            <constraint firstItem="AxE-DC-Zfl" firstAttribute="leading" secondItem="XoB-lR-2bH" secondAttribute="leading" id="sVv-rQ-Ovp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XoB-lR-2bH"/>
+                    </view>
+                    <connections>
+                        <outlet property="displayLabel" destination="AxE-DC-Zfl" id="oZE-zR-13Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PNQ-Bg-fLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2153.6231884057975" y="-1146.4285714285713"/>
+        </scene>
+        <!--Custom Page View Controller-->
+        <scene sceneID="XRM-ep-6ex">
+            <objects>
+                <pageViewController storyboardIdentifier="CustomPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QKB-YI-Trh" customClass="CustomPageViewController" customModule="aLodjinha" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2AZ-oC-sU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2917" y="-1146"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="BbC-lW-Dz2">
@@ -105,6 +164,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.41400757430000001" green="0.2436960936" blue="0.56820958850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="XKV-O6-Jry" kind="relationship" relationship="viewControllers" id="3cE-tL-Dy3"/>
