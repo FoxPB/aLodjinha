@@ -15,10 +15,10 @@ class Banner {
     var linkUrl: String
     var urlImagem: String
     
-    init(id: Int, linkUrl: String, urlImage: String) {
+    init(id: Int, linkUrl: String, urlImagem: String) {
         self.id = id
         self.linkUrl = linkUrl
-        self.urlImagem = urlImage
+        self.urlImagem = urlImagem
     }
     
 }

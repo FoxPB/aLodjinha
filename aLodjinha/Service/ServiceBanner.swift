@@ -12,9 +12,10 @@ class ServiceBanner {
     
     var banners: [Banner] = []
     
+    
     //Consumindo a API JSON com os dados para carregar no app
     //Neste metodo esta sendo carregado os dados do Banner, não foi feito uma consulta generica porque as estruturas dos dados mudam (banner, categoria e produto) por isso uma consulta por obj
-    func consultarBanner() -> [Banner]{
+    func consultarBanner(completionHandler: @escaping (_ result: [Banner]) -> Void){
         
         if let urlRecuperada = URL(string: "https://alodjinha.herokuapp.com/banner") {
             
@@ -35,22 +36,26 @@ class ServiceBanner {
                                             
                                             if let id = banner["id"] {
                                                 if let linkUrl = banner["linkUrl"]{
-                                                    if let urlImage = banner["urlImage"]{
-                                                        
-                                                        let banner = Banner(id: id as! Int, linkUrl: linkUrl as! String, urlImage: urlImage as! String)
-                                                        
-                                                        self.banners.append(banner)
-                                                        
+                                                    if let urlImagem = banner["urlImagem"]{
+                                                        if id != nil && linkUrl != nil && urlImagem != nil {
+                                                            
+                                                            let banner = Banner(id: id as! Int, linkUrl: linkUrl as! String, urlImagem: urlImagem as! String)
+                                                           
+                                                            self.banners.append(banner)
+                                                            
+                                                        }
                                                     }
                                                 }
                                             }
                                             
                                         }
                                     }
-                                    
+                                    completionHandler(self.banners)
+                                    print("print no Service\(self.banners)")
                                 }
                                 
                             }
+                            
                         }catch{
                             print("Erro ao transformar o retorno")
                         }
@@ -63,8 +68,9 @@ class ServiceBanner {
                 
             }
             consulta.resume()
+           
         }
-        return self.banners
+        
     }
     
     

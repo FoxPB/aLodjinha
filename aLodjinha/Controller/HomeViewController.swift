@@ -13,18 +13,22 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     var banners: [Banner] = []
-    let dataSource = ["Teste 1", "Teste 2", "Teste 3", " Teste 4"]
+    let dataSource = ["Teste 1", "Teste 2", "Teste 3"]
     var currentViewControllerIndex = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //fazendo a consulta no Banco a partir do Service e "poluindo"
         let serviceBanner = ServiceBanner()
-        banners = serviceBanner.consultarBanner()
-        
+        serviceBanner.consultarBanner { (banners) in
+            self.banners = banners
+            
+        }
+    
         logoNavigationBar()
-        configurePageViewController()
+        self.configurePageViewController()
         
     }
     
@@ -86,6 +90,7 @@ class HomeViewController: UIViewController {
         }
         
         dataBannerViewController.index = index
+        print("print no HomeView \(banners)")
         dataBannerViewController.displayText = dataSource[index]
         
         return dataBannerViewController
