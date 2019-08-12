@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Categoria {
+struct Categoria {
     
     var id: Int?
     var descrição: String?

@@ -8,10 +8,9 @@
 
 import Foundation
 
-class Banner {
+struct Banner {
 
     var id: Int
-    var index: Int?
     var linkUrl: String
     var urlImagem: String
     

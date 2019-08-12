@@ -13,12 +13,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     var banners: [Banner] = []
-    let dataSource = ["Teste 1", "Teste 2", "Teste 3"]
     var currentViewControllerIndex = 0
-    
+    var tempoAux = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.logoNavigationBar()
         
         //fazendo a consulta no Banco a partir do Service e "poluindo"
         let serviceBanner = ServiceBanner()
@@ -26,9 +27,20 @@ class HomeViewController: UIViewController {
             self.banners = banners
             
         }
-    
-        logoNavigationBar()
-        self.configurePageViewController()
+        
+        //Inicializar o Timer
+        //Coloquei esse timer para dar tempo da consulta JSON ser feita e preencher o array
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            
+            //Decrementar o tempo
+            self.tempoAux = self.tempoAux - 1
+            
+            //caso o timer execute ate o 0
+            if self.tempoAux == 0 {
+                timer.invalidate()
+                self.configurePageViewController()
+            }
+        })
         
     }
     
@@ -81,7 +93,7 @@ class HomeViewController: UIViewController {
     //Definindo o banner
     func detailViewControllerAt(index: Int) -> DataBannerViewController? {
         
-        if index >= dataSource.count || dataSource.count == 0 {
+        if index >= banners.count || banners.count == 0 {
             return nil
         }
         
@@ -91,7 +103,7 @@ class HomeViewController: UIViewController {
         
         dataBannerViewController.index = index
         print("print no HomeView \(banners)")
-        dataBannerViewController.displayText = dataSource[index]
+        dataBannerViewController.displayText = banners[index].urlImagem
         
         return dataBannerViewController
     }
@@ -106,7 +118,7 @@ extension HomeViewController: UIPageViewControllerDelegate, UIPageViewController
     }
     
     func presentationCount(for pageViewCOntroller: UIPageViewController) -> Int {
-        return dataSource.count
+        return banners.count
     }
     
     func pageViewController(_ pageViewController: UIPageViewController,
@@ -137,7 +149,7 @@ extension HomeViewController: UIPageViewControllerDelegate, UIPageViewController
             return nil
         }
         
-        if currentIndex == dataSource.count {
+        if currentIndex == banners.count {
             return nil
         }
         
