@@ -12,7 +12,6 @@ class ServiceBanner {
     
     var banners: [Banner] = []
     
-    
     //Consumindo a API JSON com os dados para carregar no app
     //Neste metodo esta sendo carregado os dados do Banner, não foi feito uma consulta generica porque as estruturas dos dados mudam (banner, categoria e produto) por isso uma consulta por obj
     func consultarBanner(completionHandler: @escaping (_ result: [Banner]) -> Void){
@@ -51,7 +50,6 @@ class ServiceBanner {
                                         }
                                     }
                                     completionHandler(self.banners)
-                                    print("print no Service\(self.banners)")
                                 }
                                 
                             }

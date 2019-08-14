@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Categoria {
+struct Categoria: Codable {
     
-    var id: Int?
-    var descrição: String?
-    var urlImagem: String?
+    var id: Int
+    var descrição: String
+    var urlImagem: String
     
 }

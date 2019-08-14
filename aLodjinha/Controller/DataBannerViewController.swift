@@ -10,14 +10,26 @@ import UIKit
 
 class DataBannerViewController: UIViewController {
     
-    @IBOutlet weak var displayLabel: UILabel!
-    var displayText: String?
+    var image: UIImage?
+    var linkUrl: String?
     var index: Int?
-    var banner: Banner?
+    @IBOutlet weak var btnBanner: UIButton!
+    
+    @IBAction func btnBannerAction(_ sender: Any) {
+        
+        if let url = URL(string: self.linkUrl!){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayLabel.text = displayText
+        
+        if let imageR = image {
+            btnBanner.setImage(imageR, for: .normal)
+        }
+        
     }
     
 }

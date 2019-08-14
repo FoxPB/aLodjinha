@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12FC52C2ACF68D103FA10208 /* Pods_aLodjinha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD59500C19F1B85AB81BB7 /* Pods_aLodjinha.framework */; };
 		51894BBD22FEFD0E00674697 /* DataBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51894BBC22FEFD0E00674697 /* DataBannerViewController.swift */; };
 		51894BBF22FEFEAC00674697 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51894BBE22FEFEAC00674697 /* CustomPageViewController.swift */; };
 		51D25A8D22FADE7C00D48002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D25A8C22FADE7C00D48002 /* AppDelegate.swift */; };
@@ -18,10 +19,13 @@
 		51D33E98230172D0003D9632 /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D33E97230172D0003D9632 /* Categoria.swift */; };
 		51D33E9B23017396003D9632 /* Produto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D33E9A23017396003D9632 /* Produto.swift */; };
 		51D33E9D230176B2003D9632 /* ServiceBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D33E9C230176B2003D9632 /* ServiceBanner.swift */; };
+		51DA1E372303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DA1E362303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift */; };
+		51DA1E3923038900009A65B3 /* ServiceProduto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DA1E3823038900009A65B3 /* ServiceProduto.swift */; };
 		51DB706E22FE4915008DBADE /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51DB706D22FE4911008DBADE /* Pacifico-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20258801A4CE000201855685 /* Pods-aLodjinha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aLodjinha.debug.xcconfig"; path = "Target Support Files/Pods-aLodjinha/Pods-aLodjinha.debug.xcconfig"; sourceTree = "<group>"; };
 		51894BBC22FEFD0E00674697 /* DataBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBannerViewController.swift; sourceTree = "<group>"; };
 		51894BBE22FEFEAC00674697 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		51D25A8922FADE7C00D48002 /* aLodjinha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aLodjinha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,7 +39,11 @@
 		51D33E97230172D0003D9632 /* Categoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
 		51D33E9A23017396003D9632 /* Produto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Produto.swift; sourceTree = "<group>"; };
 		51D33E9C230176B2003D9632 /* ServiceBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceBanner.swift; sourceTree = "<group>"; };
+		51DA1E362303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaisVendidosCelulaTableViewCell.swift; sourceTree = "<group>"; };
+		51DA1E3823038900009A65B3 /* ServiceProduto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProduto.swift; sourceTree = "<group>"; };
 		51DB706D22FE4911008DBADE /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		A9E40D75C307341347B0BB80 /* Pods-aLodjinha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aLodjinha.release.xcconfig"; path = "Target Support Files/Pods-aLodjinha/Pods-aLodjinha.release.xcconfig"; sourceTree = "<group>"; };
+		C1CD59500C19F1B85AB81BB7 /* Pods_aLodjinha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aLodjinha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,18 +51,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12FC52C2ACF68D103FA10208 /* Pods_aLodjinha.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		324214CD8619955E98805988 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20258801A4CE000201855685 /* Pods-aLodjinha.debug.xcconfig */,
+				A9E40D75C307341347B0BB80 /* Pods-aLodjinha.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		516714532300DB10007BD604 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				51894BBC22FEFD0E00674697 /* DataBannerViewController.swift */,
 				51D25AA022FAF8FC00D48002 /* HomeViewController.swift */,
 				51894BBE22FEFEAC00674697 /* CustomPageViewController.swift */,
+				51DA1E362303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -65,6 +84,8 @@
 				51D25A8B22FADE7C00D48002 /* aLodjinha */,
 				51D25A9822FADE7E00D48002 /* Info.plist */,
 				51D25A8A22FADE7C00D48002 /* Products */,
+				324214CD8619955E98805988 /* Pods */,
+				9D224187CD5C05E7131213D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				51D33E9C230176B2003D9632 /* ServiceBanner.swift */,
+				51DA1E3823038900009A65B3 /* ServiceProduto.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -157,6 +179,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		9D224187CD5C05E7131213D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1CD59500C19F1B85AB81BB7 /* Pods_aLodjinha.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +194,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51D25A9B22FADE7E00D48002 /* Build configuration list for PBXNativeTarget "aLodjinha" */;
 			buildPhases = (
+				485D09EC90499634F6748941 /* [CP] Check Pods Manifest.lock */,
 				51D25A8522FADE7C00D48002 /* Sources */,
 				51D25A8622FADE7C00D48002 /* Frameworks */,
 				51D25A8722FADE7C00D48002 /* Resources */,
+				B1A41F545DD9321CC1954EB3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +256,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		485D09EC90499634F6748941 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-aLodjinha-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1A41F545DD9321CC1954EB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aLodjinha/Pods-aLodjinha-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aLodjinha/Pods-aLodjinha-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		51D25A8522FADE7C00D48002 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -231,12 +310,14 @@
 			files = (
 				51D33E9B23017396003D9632 /* Produto.swift in Sources */,
 				51894BBF22FEFEAC00674697 /* CustomPageViewController.swift in Sources */,
+				51DA1E372303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift in Sources */,
 				51894BBD22FEFD0E00674697 /* DataBannerViewController.swift in Sources */,
 				51D33E9523017228003D9632 /* Banner.swift in Sources */,
 				51D25A8D22FADE7C00D48002 /* AppDelegate.swift in Sources */,
 				51D33E9D230176B2003D9632 /* ServiceBanner.swift in Sources */,
 				51D25AA122FAF8FC00D48002 /* HomeViewController.swift in Sources */,
 				51D33E98230172D0003D9632 /* Categoria.swift in Sources */,
+				51DA1E3923038900009A65B3 /* ServiceProduto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +461,7 @@
 		};
 		51D25A9C22FADE7E00D48002 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20258801A4CE000201855685 /* Pods-aLodjinha.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -399,6 +481,7 @@
 		};
 		51D25A9D22FADE7E00D48002 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9E40D75C307341347B0BB80 /* Pods-aLodjinha.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

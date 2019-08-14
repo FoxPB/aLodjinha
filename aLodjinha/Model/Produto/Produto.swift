@@ -9,15 +9,19 @@
 import Foundation
 import UIKit
 
-struct Produto {
+struct MaisVendidos: Codable {
+    let data: [Produto]
+}
+
+struct Produto: Codable {
     
-    var id: Int?
-    var nome: String?
-    var precoDe: Int?
-    var precoPro: Int?
-    var urlImagem: String?
-    var descrição: String?
-    var categoria: Categoria?
+    var descrição: String
+    var id: Int
+    var nome: String
+    var precoDe: Int
+    var precoPor: Int
+    var urlImagem: String
+    var categoria: Categoria
     var offset: Int?
     var total: Int?
     
