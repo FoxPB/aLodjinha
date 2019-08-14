@@ -8,16 +8,14 @@
 
 import Foundation
 
-struct Banner {
+struct Banners: Codable {
+    let data: [Banner]
+}
+
+struct Banner: Codable {
 
     var id: Int
     var linkUrl: String
     var urlImagem: String
-    
-    init(id: Int, linkUrl: String, urlImagem: String) {
-        self.id = id
-        self.linkUrl = linkUrl
-        self.urlImagem = urlImagem
-    }
     
 }

@@ -11,7 +11,7 @@ import Foundation
 struct Categoria: Codable {
     
     var id: Int
-    var descrição: String
+    var descrição: String?
     var urlImagem: String
     
 }

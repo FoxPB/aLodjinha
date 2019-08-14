@@ -27,12 +27,13 @@ class ServiceProduto {
                         let maisVendidosDecoder = JSONDecoder()
                         
                         do{
-                            let data = try maisVendidosDecoder.decode(MaisVendidos.self, from: dadosRetorno)
+                            let maisVendidos = try maisVendidosDecoder.decode(MaisVendidos.self, from: dadosRetorno)
                             
-                            print(data)
+                            self.produtos = maisVendidos.data
+                            completionHandler(self.produtos)
                             
                         }catch{
-                            print("Erro ao transformar o retorno: \(error.localizedDescription)")
+                            print("Erro ao transformar o retorno de MaisVendidos: \(error.localizedDescription)")
                         }
                         
                     }

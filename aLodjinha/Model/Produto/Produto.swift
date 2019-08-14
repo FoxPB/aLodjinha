@@ -15,14 +15,13 @@ struct MaisVendidos: Codable {
 
 struct Produto: Codable {
     
-    var descrição: String
+    var descrição: String?
     var id: Int
     var nome: String
-    var precoDe: Int
-    var precoPor: Int
+    var precoDe: Double
+    var precoPor: Double
     var urlImagem: String
     var categoria: Categoria
     var offset: Int?
     var total: Int?
-    
 }

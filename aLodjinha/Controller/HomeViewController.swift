@@ -38,7 +38,8 @@ class HomeViewController: UIViewController, UITableViewDelegate,  UITableViewDat
         
         //fazendo a consulta no Banco a partir do Service
         self.serviceProduto.consultarMaisVendidos { (produtos) in
-            //self.produtos = produtos
+            self.produtos = produtos
+            print(produtos[0])
         }
         
         //Inicializar o Timer

@@ -24,38 +24,18 @@ class ServiceBanner {
                     
                     if let dadosRetorno = dados{
                         
+                        let bannersDecoder = JSONDecoder()
+                        
                         do{
-                            if let objetoJson = try JSONSerialization.jsonObject(with: dadosRetorno, options: []) as? [String: [AnyObject]] {
-                                
-                                if let data = objetoJson["data"]{
-                                    
-                                    for i in 0..<data.count{
-                                        
-                                        if let banner: AnyObject = data[i]{
-                                            
-                                            if let id = banner["id"] {
-                                                if let linkUrl = banner["linkUrl"]{
-                                                    if let urlImagem = banner["urlImagem"]{
-                                                        if id != nil && linkUrl != nil && urlImagem != nil {
-                                                            
-                                                            let banner = Banner(id: id as! Int, linkUrl: linkUrl as! String, urlImagem: urlImagem as! String)
-                                                           
-                                                            self.banners.append(banner)
-                                                            
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                            
-                                        }
-                                    }
-                                    completionHandler(self.banners)
-                                }
-                                
-                            }
+                         
+                            let banners = try bannersDecoder.decode(Banners.self, from: dadosRetorno)
+                            
+                            self.banners = banners.data
+                            completionHandler(self.banners)
+                            
                             
                         }catch{
-                            print("Erro ao transformar o retorno")
+                            print("Erro ao transformar o retorno de Banners: \(error.localizedDescription)")
                         }
                         
                     }
