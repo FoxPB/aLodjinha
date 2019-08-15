@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12FC52C2ACF68D103FA10208 /* Pods_aLodjinha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD59500C19F1B85AB81BB7 /* Pods_aLodjinha.framework */; };
+		515470BE2305D71200CB8EAD /* ServiceCategoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515470BD2305D71200CB8EAD /* ServiceCategoria.swift */; };
 		516BD2F52305C1F000BADB3D /* CategoriaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516BD2F32305C1F000BADB3D /* CategoriaCollectionViewCell.swift */; };
 		516BD2F62305C1F000BADB3D /* CategoriaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516BD2F42305C1F000BADB3D /* CategoriaCollectionViewCell.xib */; };
 		51894BBD22FEFD0E00674697 /* DataBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51894BBC22FEFD0E00674697 /* DataBannerViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		20258801A4CE000201855685 /* Pods-aLodjinha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aLodjinha.debug.xcconfig"; path = "Target Support Files/Pods-aLodjinha/Pods-aLodjinha.debug.xcconfig"; sourceTree = "<group>"; };
+		515470BD2305D71200CB8EAD /* ServiceCategoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoria.swift; sourceTree = "<group>"; };
 		516BD2F32305C1F000BADB3D /* CategoriaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaCollectionViewCell.swift; sourceTree = "<group>"; };
 		516BD2F42305C1F000BADB3D /* CategoriaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriaCollectionViewCell.xib; sourceTree = "<group>"; };
 		51894BBC22FEFD0E00674697 /* DataBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBannerViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				51D33E9C230176B2003D9632 /* ServiceBanner.swift */,
 				51DA1E3823038900009A65B3 /* ServiceProduto.swift */,
+				515470BD2305D71200CB8EAD /* ServiceCategoria.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				516BD2F52305C1F000BADB3D /* CategoriaCollectionViewCell.swift in Sources */,
 				51DA1E372303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift in Sources */,
 				51894BBD22FEFD0E00674697 /* DataBannerViewController.swift in Sources */,
+				515470BE2305D71200CB8EAD /* ServiceCategoria.swift in Sources */,
 				51D33E9523017228003D9632 /* Banner.swift in Sources */,
 				51D25A8D22FADE7C00D48002 /* AppDelegate.swift in Sources */,
 				51D33E9D230176B2003D9632 /* ServiceBanner.swift in Sources */,

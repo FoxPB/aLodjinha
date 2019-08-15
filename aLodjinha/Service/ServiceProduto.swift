@@ -13,7 +13,7 @@ class ServiceProduto {
     var produtos: [Produto] = []
     
     //Consumindo a API JSON com os dados para carregar no app
-    //Neste metodo esta sendo carregado os dados do Banner, não foi feito uma consulta generica porque as estruturas dos dados mudam (banner, categoria e produto) por isso uma consulta por obj
+    //Neste metodo esta sendo carregado os dados do Produto, não foi feito uma consulta generica porque as estruturas dos dados mudam (banner, categoria e produto) por isso uma consulta por obj
     func consultarMaisVendidos(completionHandler: @escaping (_ result: [Produto]) -> Void){
         
         if let urlRecuperada = URL(string: "https://alodjinha.herokuapp.com/produto/maisvendidos") {

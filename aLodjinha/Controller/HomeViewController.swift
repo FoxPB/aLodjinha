@@ -9,11 +9,21 @@
 import UIKit
 import SDWebImage
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
 
     @IBOutlet weak var categoriaCollectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var contentView: UIView!
+    @IBAction func backToHome(segue:UIStoryboardSegue) { }
  
     let serviceBanner = ServiceBanner()
     let serviceProduto = ServiceProduto()
@@ -29,6 +39,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.delegate = self
         tableView.dataSource = self
+        categoriaCollectionView.delegate = self
+        categoriaCollectionView.dataSource = self
         
         //Logo da Lodjinha que fica na tela home
         self.logoNavigationBar()
@@ -257,6 +269,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tabBarController?.tabBar.isHidden = false
         
     }
+    
 }
 
 //Controle da PageView
