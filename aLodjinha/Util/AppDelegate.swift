@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageControl.currentPageIndicatorTintColor = .purple
         pageControl.pageIndicatorTintColor = .lightGray
 
- 
         return true
     }
 

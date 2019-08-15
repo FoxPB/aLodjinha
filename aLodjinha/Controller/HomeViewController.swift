@@ -9,24 +9,26 @@
 import UIKit
 import SDWebImage
 
-class HomeViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource {
-    
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var categoriaCollectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var contentView: UIView!
  
     let serviceBanner = ServiceBanner()
     let serviceProduto = ServiceProduto()
     var banners: [Banner] = []
-    var imagens: [UIImage] = []
-    var produtos: [Produto] = []
-    var imagensView: [UIImageView] = []
+    var imagensBanners: [UIImage] = []
+    var produtosMaisVendidos: [Produto] = []
+    var imagensProdutosMaisVendidos: [UIImage] = []
     var currentViewControllerIndex = 0
-    var tempoDoTimeBanners = 2
+    var tempoDoTimeBanners = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //tableView dos MaisVendidos
-        //self.setupTableView()
+        tableView.delegate = self
+        tableView.dataSource = self
         
         //Logo da Lodjinha que fica na tela home
         self.logoNavigationBar()
@@ -38,7 +40,9 @@ class HomeViewController: UIViewController, UITableViewDelegate,  UITableViewDat
         
         //fazendo a consulta no Banco a partir do Service
         self.serviceProduto.consultarMaisVendidos { (produtos) in
-            self.produtos = produtos
+            
+            self.produtosMaisVendidos = produtos
+            
             print(produtos[0])
         }
         
@@ -50,53 +54,73 @@ class HomeViewController: UIViewController, UITableViewDelegate,  UITableViewDat
             
             //caso o timer execute ate o 1
             if self.tempoDoTimeBanners == 1 {
-                self.carregarImagemProfile()
+                self.carregarImagensBanners()
+                self.carregarImagensMaisVendidos()
             }
             
             //caso o timer execute ate o 0
             if self.tempoDoTimeBanners == 0 {
                 timer.invalidate()
                 self.configurePageViewController()
+                //atualizando a tabela... porque muito provalvelmente o JSON nao vai ter carregado os dados ainda
+                self.tableView.reloadData()
             }
         })
         
     }
     
-    //Definindo a Table view que sera usada nos MaisVendidos
-    let tableview: UITableView = {
-        let tableMaisVendidos = UITableView()
-        tableMaisVendidos.backgroundColor = UIColor.white
-        tableMaisVendidos.translatesAutoresizingMaskIntoConstraints = false
-        return tableMaisVendidos
-    }()
-    
-    //Instancia da tableview
-    func setupTableView() {
-        tableview.delegate = self
-        tableview.dataSource = self
-        tableview.register(MaisVendidosCelulaTableViewCell.self, forCellReuseIdentifier: "celulaHome")
-        
-        view.addSubview(tableview)
-        
-        NSLayoutConstraint.activate([
-            tableview.topAnchor.constraint(equalTo: self.view.topAnchor),
-            tableview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            tableview.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-            ])
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        
+        if produtosMaisVendidos.count < 1 {
+            return 0
+        }
+        
+        return produtosMaisVendidos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        carregarImagensMaisVendidos()
         
-        let cell = tableview.dequeueReusableCell(withIdentifier: "celulaHome", for: indexPath) as! MaisVendidosCelulaTableViewCell
-        cell.backgroundColor = UIColor.white
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaHome", for: indexPath) as! MaisVendidosCelulaTableViewCell
+        
+        cell.nomeProduto.text = produtosMaisVendidos[indexPath.row].nome
+        
+        let deCortado: NSMutableAttributedString =  NSMutableAttributedString(string: String("De: \(produtosMaisVendidos[indexPath.row].precoDe)"))
+        deCortado.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, deCortado.length))
+        
+        cell.de.attributedText = deCortado
+        
+        if let porArredondado: Double = arredonda(valor: produtosMaisVendidos[indexPath.row].precoPor, casasdecimais: 2){
+            cell.por.text = String("Por: \(porArredondado)")
+        }
+        
+        if self.imagensProdutosMaisVendidos.count == produtosMaisVendidos.count {
+             cell.imageProdutoMaisVendido.image = self.imagensProdutosMaisVendidos[indexPath.row]
+        }
+        
         return cell
     }
     
+    //metodo que recupera o produto selecionado
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let produto = produtosMaisVendidos[indexPath.row]
+        
+        self.performSegue(withIdentifier: "homeParaProduto", sender: produto)
+        
+    }
+    
+    //metodo usado para setar os dados na outra "tela" classe
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //tratando para saber se o indetificador da segue esta certo
+        if segue.identifier == "homeParaProduto" {
+            let produtoViewController = segue.destination as! ProdutoViewController
+            produtoViewController.produto = sender as? Produto
+        }
+    
+    }
     
     //Setando a Imagem da NavigationBar
     private func logoNavigationBar(){
@@ -145,7 +169,7 @@ class HomeViewController: UIViewController, UITableViewDelegate,  UITableViewDat
     //Definindo o banner
     func detailViewControllerAt(index: Int) -> DataBannerViewController? {
         
-        self.carregarImagemProfile()
+        self.carregarImagensBanners()
         
         if index >= banners.count || banners.count == 0 {
             return nil
@@ -156,20 +180,21 @@ class HomeViewController: UIViewController, UITableViewDelegate,  UITableViewDat
         }
         
         dataBannerViewController.index = index
-        if imagens.count > 0 {
+        if imagensBanners.count == banners.count {
             dataBannerViewController.linkUrl = self.banners[index].linkUrl
-            dataBannerViewController.image = self.imagens[index]
+            dataBannerViewController.image = self.imagensBanners[index]
         }
         
         return dataBannerViewController
     }
     
     //Metodo para carregar as imagens de uma URL usando a pod SDWebImage
-    private func carregarImagemProfile(){
+    //Banners
+    private func carregarImagensBanners(){
         
         if self.banners.count > 0 {
             
-            self.imagens = []
+            self.imagensBanners = []
             
             for i in 0..<self.banners.count{
                 
@@ -179,7 +204,7 @@ class HomeViewController: UIViewController, UITableViewDelegate,  UITableViewDat
                     let imageView = UIImageView()
                     imageView.sd_setImage(with: url) { (image, erro, cache, url) in
                         
-                        self.imagens.append(image!)
+                        self.imagensBanners.append(image!)
                         
                     }
                     
@@ -188,6 +213,48 @@ class HomeViewController: UIViewController, UITableViewDelegate,  UITableViewDat
             }
             
         }
+    }
+    
+    //Metodo para carregar as imagens de uma URL usando a pod SDWebImage
+    //MaisVendidos
+    private func carregarImagensMaisVendidos(){
+        
+        if self.produtosMaisVendidos.count > 0 {
+            
+            self.imagensProdutosMaisVendidos = []
+            
+            for i in 0..<self.produtosMaisVendidos.count{
+                
+                if let url = URL(string: self.produtosMaisVendidos[i].urlImagem){
+                    
+                    //Aqui é carregada a imagem
+                    let imageView = UIImageView()
+                    imageView.sd_setImage(with: url) { (image, erro, cache, url) in
+                        
+                        self.imagensProdutosMaisVendidos.append(image!)
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+    }
+    
+    //Arredonda numero
+    func arredonda(valor: Double, casasdecimais: Int)-> Double{
+        let formato = String(casasdecimais)+"f"
+        return Double(String(format: "%."+formato, valor))!
+    }
+    
+    // esse metodo e chamado SEMRPE que a tela for apresentada ao usuario
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.carregarImagensBanners()
+        self.carregarImagensMaisVendidos()
+        //com esse metodo a gente "esconde" a TabBar da tela
+        self.tabBarController?.tabBar.isHidden = false
         
     }
 }
@@ -247,15 +314,15 @@ extension HomeViewController: UIPageViewControllerDelegate, UIPageViewController
         
         if completed {
             if let currentViewController = pageViewController.viewControllers![0] as? DataBannerViewController {
+                
                 //pageControl.currentPage =
-               
                 //self.detailViewControllerAt.currentPageIndex = pageViewController.viewControllers!.first!.view.tag
                 print("Completd")
+                
             }
         }
         
     }
     
-    
-    
+
 }

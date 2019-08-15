@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		12FC52C2ACF68D103FA10208 /* Pods_aLodjinha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD59500C19F1B85AB81BB7 /* Pods_aLodjinha.framework */; };
+		516BD2F52305C1F000BADB3D /* CategoriaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516BD2F32305C1F000BADB3D /* CategoriaCollectionViewCell.swift */; };
+		516BD2F62305C1F000BADB3D /* CategoriaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516BD2F42305C1F000BADB3D /* CategoriaCollectionViewCell.xib */; };
 		51894BBD22FEFD0E00674697 /* DataBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51894BBC22FEFD0E00674697 /* DataBannerViewController.swift */; };
 		51894BBF22FEFEAC00674697 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51894BBE22FEFEAC00674697 /* CustomPageViewController.swift */; };
 		51D25A8D22FADE7C00D48002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D25A8C22FADE7C00D48002 /* AppDelegate.swift */; };
@@ -21,11 +23,14 @@
 		51D33E9D230176B2003D9632 /* ServiceBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D33E9C230176B2003D9632 /* ServiceBanner.swift */; };
 		51DA1E372303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DA1E362303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift */; };
 		51DA1E3923038900009A65B3 /* ServiceProduto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DA1E3823038900009A65B3 /* ServiceProduto.swift */; };
+		51DA1E3B23043AA0009A65B3 /* ProdutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DA1E3A23043AA0009A65B3 /* ProdutoViewController.swift */; };
 		51DB706E22FE4915008DBADE /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51DB706D22FE4911008DBADE /* Pacifico-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		20258801A4CE000201855685 /* Pods-aLodjinha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aLodjinha.debug.xcconfig"; path = "Target Support Files/Pods-aLodjinha/Pods-aLodjinha.debug.xcconfig"; sourceTree = "<group>"; };
+		516BD2F32305C1F000BADB3D /* CategoriaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaCollectionViewCell.swift; sourceTree = "<group>"; };
+		516BD2F42305C1F000BADB3D /* CategoriaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriaCollectionViewCell.xib; sourceTree = "<group>"; };
 		51894BBC22FEFD0E00674697 /* DataBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBannerViewController.swift; sourceTree = "<group>"; };
 		51894BBE22FEFEAC00674697 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		51D25A8922FADE7C00D48002 /* aLodjinha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aLodjinha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +46,7 @@
 		51D33E9C230176B2003D9632 /* ServiceBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceBanner.swift; sourceTree = "<group>"; };
 		51DA1E362303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaisVendidosCelulaTableViewCell.swift; sourceTree = "<group>"; };
 		51DA1E3823038900009A65B3 /* ServiceProduto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProduto.swift; sourceTree = "<group>"; };
+		51DA1E3A23043AA0009A65B3 /* ProdutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdutoViewController.swift; sourceTree = "<group>"; };
 		51DB706D22FE4911008DBADE /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		A9E40D75C307341347B0BB80 /* Pods-aLodjinha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aLodjinha.release.xcconfig"; path = "Target Support Files/Pods-aLodjinha/Pods-aLodjinha.release.xcconfig"; sourceTree = "<group>"; };
 		C1CD59500C19F1B85AB81BB7 /* Pods_aLodjinha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aLodjinha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +80,9 @@
 				51D25AA022FAF8FC00D48002 /* HomeViewController.swift */,
 				51894BBE22FEFEAC00674697 /* CustomPageViewController.swift */,
 				51DA1E362303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift */,
+				51DA1E3A23043AA0009A65B3 /* ProdutoViewController.swift */,
+				516BD2F32305C1F000BADB3D /* CategoriaCollectionViewCell.swift */,
+				516BD2F42305C1F000BADB3D /* CategoriaCollectionViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 			files = (
 				51D25A9722FADE7E00D48002 /* LaunchScreen.storyboard in Resources */,
 				51DB706E22FE4915008DBADE /* Pacifico-Regular.ttf in Resources */,
+				516BD2F62305C1F000BADB3D /* CategoriaCollectionViewCell.xib in Resources */,
 				51D25A9422FADE7E00D48002 /* Assets.xcassets in Resources */,
 				51D25A9222FADE7C00D48002 /* Main.storyboard in Resources */,
 			);
@@ -310,12 +320,14 @@
 			files = (
 				51D33E9B23017396003D9632 /* Produto.swift in Sources */,
 				51894BBF22FEFEAC00674697 /* CustomPageViewController.swift in Sources */,
+				516BD2F52305C1F000BADB3D /* CategoriaCollectionViewCell.swift in Sources */,
 				51DA1E372303772F009A65B3 /* MaisVendidosCelulaTableViewCell.swift in Sources */,
 				51894BBD22FEFD0E00674697 /* DataBannerViewController.swift in Sources */,
 				51D33E9523017228003D9632 /* Banner.swift in Sources */,
 				51D25A8D22FADE7C00D48002 /* AppDelegate.swift in Sources */,
 				51D33E9D230176B2003D9632 /* ServiceBanner.swift in Sources */,
 				51D25AA122FAF8FC00D48002 /* HomeViewController.swift in Sources */,
+				51DA1E3B23043AA0009A65B3 /* ProdutoViewController.swift in Sources */,
 				51D33E98230172D0003D9632 /* Categoria.swift in Sources */,
 				51DA1E3923038900009A65B3 /* ServiceProduto.swift in Sources */,
 			);

@@ -49,4 +49,54 @@ class ServiceProduto {
         
     }
     
+    func fazerReserva(produto: Produto, completionHandler: @escaping (_ result: Bool) -> Void){
+        
+        var estado = false
+        
+        if let urlRecuperada = URL(string: "https://alodjinha.herokuapp.com/produto/\(produto.id)"){
+            
+            var request = URLRequest(url: urlRecuperada)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = try? JSONEncoder().encode(produto.id)
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                if let error = error {
+                    print ("error: \(error)")
+                    DispatchQueue.main.async {
+                        completionHandler(estado)
+                    }
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse,
+                    (200...299).contains(response.statusCode) else {
+                        DispatchQueue.main.async {
+                            completionHandler(estado)
+                        }
+                        print ("server error")
+                        return
+                }
+                
+                if let mimeType = response.mimeType,
+                    mimeType == "application/json",
+                    let data = data,
+                    let dataString = String(data: data, encoding: .utf8) {
+                    
+                    print ("got data: \(dataString)")
+                    estado = true
+                    
+                    DispatchQueue.main.async {
+                        completionHandler(estado)
+                    }
+
+                }
+            }//FIM do dataTask
+            task.resume()
+    
+        }//FIM do IF urlRecuperada
+        
+    }//FIM do metodo fazerReserva
+    
 }
