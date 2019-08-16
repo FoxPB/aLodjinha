@@ -11,14 +11,6 @@ import SDWebImage
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
-    }
-    
 
     @IBOutlet weak var categoriaCollectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
@@ -27,10 +19,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
  
     let serviceBanner = ServiceBanner()
     let serviceProduto = ServiceProduto()
+    let serviceCategoria = ServiceCategoria()
     var banners: [Banner] = []
     var imagensBanners: [UIImage] = []
     var produtosMaisVendidos: [Produto] = []
     var imagensProdutosMaisVendidos: [UIImage] = []
+    var categorias: [Categoria] = []
+    var imagensCategorias: [UIImage] = []
     var currentViewControllerIndex = 0
     var tempoDoTimeBanners = 3
     
@@ -42,6 +37,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         categoriaCollectionView.delegate = self
         categoriaCollectionView.dataSource = self
         
+        self.categoriaCollectionView.register(UINib(nibName: String(describing: CategoriaCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: "celulaXIB")
+        
         //Logo da Lodjinha que fica na tela home
         self.logoNavigationBar()
         
@@ -52,10 +49,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //fazendo a consulta no Banco a partir do Service
         self.serviceProduto.consultarMaisVendidos { (produtos) in
-            
             self.produtosMaisVendidos = produtos
-            
-            print(produtos[0])
+        }
+        
+        //fazendo a consulta no Banco a partir do Service
+        self.serviceCategoria.consultarCategoria{ (categorias) in
+            self.categorias = categorias
         }
         
         //Inicializar o Timer
@@ -68,14 +67,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if self.tempoDoTimeBanners == 1 {
                 self.carregarImagensBanners()
                 self.carregarImagensMaisVendidos()
+                self.carregarImagensCategorias()
             }
             
             //caso o timer execute ate o 0
             if self.tempoDoTimeBanners == 0 {
                 timer.invalidate()
                 self.configurePageViewController()
-                //atualizando a tabela... porque muito provalvelmente o JSON nao vai ter carregado os dados ainda
+                //atualizando a tabela e a collection... porque muito provalvelmente o JSON nao vai ter carregado os dados ainda
                 self.tableView.reloadData()
+                self.categoriaCollectionView.reloadData()
             }
         })
         
@@ -107,7 +108,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.por.text = String("Por: \(porArredondado)")
         }
         
-        if self.imagensProdutosMaisVendidos.count == produtosMaisVendidos.count {
+        if self.imagensProdutosMaisVendidos.count == self.produtosMaisVendidos.count {
              cell.imageProdutoMaisVendido.image = self.imagensProdutosMaisVendidos[indexPath.row]
         }
         
@@ -123,13 +124,56 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        
+        if categorias.count < 1 {
+            return 0
+        }
+        
+        return categorias.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        self.carregarImagensCategorias()
+        
+        let cell = categoriaCollectionView.dequeueReusableCell(withReuseIdentifier: "celulaXIB", for: indexPath) as! CategoriaCollectionViewCell
+        
+        if let nomeCategoriaRecuperado = self.categorias[indexPath.row].descricao {
+           
+            cell.nomeCategoria.text = nomeCategoriaRecuperado
+        }
+        
+        if self.imagensCategorias.count == self.categorias.count {
+            cell.imagemCategoria.image = self.imagensCategorias[indexPath.row]
+        }
+        
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let categoria = self.categorias[indexPath.row]
+        
+        self.performSegue(withIdentifier: "homeParaCategoria", sender: categoria)
+        
+    }
+    
     //metodo usado para setar os dados na outra "tela" classe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //tratando para saber se o indetificador da segue esta certo
         if segue.identifier == "homeParaProduto" {
+            
             let produtoViewController = segue.destination as! ProdutoViewController
             produtoViewController.produto = sender as? Produto
+            
+        }else if segue.identifier == "homeParaCategoria"{
+            
+            let produtoTableViewController = segue.destination as! ProdutoTableViewController
+            produtoTableViewController.categoria = sender as? Categoria
         }
     
     }
@@ -216,7 +260,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let imageView = UIImageView()
                     imageView.sd_setImage(with: url) { (image, erro, cache, url) in
                         
-                        self.imagensBanners.append(image!)
+                        if erro == nil{
+                            self.imagensBanners.append(image!)
+                        }else{
+                            let semImagem = #imageLiteral(resourceName: "Foto indisponivel")
+                            self.imagensBanners.append(semImagem)
+                        }
+                        
                         
                     }
                     
@@ -243,7 +293,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let imageView = UIImageView()
                     imageView.sd_setImage(with: url) { (image, erro, cache, url) in
                         
-                        self.imagensProdutosMaisVendidos.append(image!)
+                        if erro == nil {
+                            self.imagensProdutosMaisVendidos.append(image!)
+                        }else{
+                            let semImagem = #imageLiteral(resourceName: "Foto indisponivel")
+                            self.imagensProdutosMaisVendidos.append(semImagem)
+                        }
                         
                     }
                     
@@ -251,6 +306,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             }
             
+        }
+    }
+    
+    //Metodo para carregar as imagens de uma URL usando a pod SDWebImage
+    //Categorias
+    private func carregarImagensCategorias(){
+        
+        if self.categorias.count > 0 {
+            
+            self.imagensCategorias = []
+            
+            for i in 0..<self.categorias.count{
+                
+                if let url = URL(string: self.categorias[i].urlImagem!){
+                        
+                        //Aqui é carregada a imagem
+                        let imageView = UIImageView()
+                        imageView.sd_setImage(with: url) { (image, erro, cache, url) in
+                            
+                            if erro == nil {
+                                self.imagensCategorias.append(image!)
+                            }else{
+                                let semImagem = #imageLiteral(resourceName: "Foto indisponivel")
+                                self.imagensCategorias.append(semImagem)
+                            }
+                            
+                        }
+                        
+                    }
+                
+            }
+
         }
     }
     
@@ -265,7 +352,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.carregarImagensBanners()
         self.carregarImagensMaisVendidos()
-        //com esse metodo a gente "esconde" a TabBar da tela
+        //com esse metodo "mostra" a TabBar da tela
         self.tabBarController?.tabBar.isHidden = false
         
     }
@@ -330,7 +417,6 @@ extension HomeViewController: UIPageViewControllerDelegate, UIPageViewController
                 
                 //pageControl.currentPage =
                 //self.detailViewControllerAt.currentPageIndex = pageViewController.viewControllers!.first!.view.tag
-                print("Completd")
                 
             }
         }

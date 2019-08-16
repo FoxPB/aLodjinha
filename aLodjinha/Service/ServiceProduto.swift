@@ -49,6 +49,43 @@ class ServiceProduto {
         
     }
     
+    //Consumindo a API JSON com os dados para carregar no app
+    //Neste metodo esta sendo carregado os dados do Produto, não foi feito uma consulta generica porque as estruturas dos dados mudam (banner, categoria e produto) por isso uma consulta por obj
+    func consultarProdutos(completionHandler: @escaping (_ result: [Produto]) -> Void){
+        
+        if let urlRecuperada = URL(string: "https://alodjinha.herokuapp.com/produto") {
+            
+            let consulta = URLSession.shared.dataTask(with: urlRecuperada) { (dados, requisicao, erro) in
+                
+                if erro == nil {
+                    
+                    if let dadosRetorno = dados{
+                        
+                        let produtosDecoder = JSONDecoder()
+                        
+                        do{
+                            let produtos = try produtosDecoder.decode(Produtos.self, from: dadosRetorno)
+                            
+                            self.produtos = produtos.data
+                            completionHandler(self.produtos)
+                            
+                        }catch{
+                            print("Erro ao transformar o retorno de MaisVendidos: \(error.localizedDescription)")
+                        }
+                        
+                    }
+                    
+                }else{
+                    print("Não foi possivel acessar o servidor de dados")
+                }
+                
+            }
+            consulta.resume()
+            
+        }
+        
+    }
+    
     func fazerReserva(produto: Produto, completionHandler: @escaping (_ result: Bool) -> Void){
         
         var estado = false

@@ -8,10 +8,14 @@
 
 import Foundation
 
+struct Categorias: Codable {
+    let data: [Categoria]
+}
+
 struct Categoria: Codable {
     
     var id: Int
-    var descrição: String?
-    var urlImagem: String
+    var descricao: String?
+    var urlImagem: String?
     
 }

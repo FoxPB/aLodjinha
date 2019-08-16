@@ -13,6 +13,11 @@ struct MaisVendidos: Codable {
     let data: [Produto]
 }
 
+struct Produtos: Codable {
+    let data: [Produto]
+    let offset, total: Int
+}
+
 struct Produto: Codable {
     
     var descrição: String?
@@ -22,6 +27,5 @@ struct Produto: Codable {
     var precoPor: Double
     var urlImagem: String
     var categoria: Categoria
-    var offset: Int?
-    var total: Int?
+    
 }
