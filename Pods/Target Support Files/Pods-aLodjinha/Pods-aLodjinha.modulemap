@@ -1,0 +1,6 @@
+framework module Pods_aLodjinha {
+  umbrella header "Pods-aLodjinha-umbrella.h"
+
+  export *
+  module * { export * }
+}
