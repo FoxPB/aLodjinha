@@ -129,9 +129,9 @@
 		51D33E8F23017107003D9632 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				51D33E9323017210003D9632 /* Banner */,
-				51D33E96230172B8003D9632 /* Categoria */,
-				51D33E9923017380003D9632 /* Produto */,
+				51D33E9423017228003D9632 /* Banner.swift */,
+				51D33E97230172D0003D9632 /* Categoria.swift */,
+				51D33E9A23017396003D9632 /* Produto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,30 +163,6 @@
 				51D25A9522FADE7E00D48002 /* LaunchScreen.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		51D33E9323017210003D9632 /* Banner */ = {
-			isa = PBXGroup;
-			children = (
-				51D33E9423017228003D9632 /* Banner.swift */,
-			);
-			path = Banner;
-			sourceTree = "<group>";
-		};
-		51D33E96230172B8003D9632 /* Categoria */ = {
-			isa = PBXGroup;
-			children = (
-				51D33E97230172D0003D9632 /* Categoria.swift */,
-			);
-			path = Categoria;
-			sourceTree = "<group>";
-		};
-		51D33E9923017380003D9632 /* Produto */ = {
-			isa = PBXGroup;
-			children = (
-				51D33E9A23017396003D9632 /* Produto.swift */,
-			);
-			path = Produto;
 			sourceTree = "<group>";
 		};
 		51DB706C22FE48F8008DBADE /* Font */ = {
