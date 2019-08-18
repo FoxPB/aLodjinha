@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ProdutoTableViewController: UITableViewController {
+class ProdutoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var showLoading: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
     let serviceProduto = ServiceProduto()
     var todosOsProdutos: [Produto] = []
     var produtosDaCategoria: [Produto] = []
@@ -22,6 +24,10 @@ class ProdutoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.showLoading.isHidden = true
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         self.navigationItem.title = categoria?.descricao
         
@@ -67,11 +73,11 @@ class ProdutoTableViewController: UITableViewController {
     }
 
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if self.produtosDaCategoria.count < 1 {
             
@@ -108,7 +114,7 @@ class ProdutoTableViewController: UITableViewController {
         return self.produtosDaCategoriaLimite.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         self.carregarImagens()
         
@@ -139,7 +145,7 @@ class ProdutoTableViewController: UITableViewController {
     }
     
     //Metodo que captura a celula selecionada
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let produto = produtosDaCategoriaLimite[indexPath.row]
         
@@ -147,10 +153,13 @@ class ProdutoTableViewController: UITableViewController {
     }
     
     //Metodo que vai fazer o load quanto o usuario alcançar 0 limite de itens permitido
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.row == self.produtosDaCategoriaLimite.count - 1 {
             if self.produtosDaCategoriaLimite.count < self.produtosDaCategoria.count {
+                
+                self.showLoading.isHidden = false
+                self.showLoading.startAnimating()
                 
                 var index = self.produtosDaCategoriaLimite.count
                 self.limite = index + 20
@@ -162,7 +171,7 @@ class ProdutoTableViewController: UITableViewController {
                     self.produtosDaCategoriaLimite.append(self.produtosDaCategoria[index])
                     index = index + 1
                 }
-                self.perform(#selector(loadTable), with: nil, afterDelay: 1.5)
+                self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
             }
         }
         
@@ -170,6 +179,8 @@ class ProdutoTableViewController: UITableViewController {
     
     @objc func loadTable() {
         self.tableView.reloadData()
+        self.showLoading.isHidden = true
+        self.showLoading.stopAnimating()
     }
     
     //metodo usado para setar os dados na outra "tela" classe
