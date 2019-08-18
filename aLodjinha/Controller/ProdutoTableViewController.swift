@@ -13,10 +13,12 @@ class ProdutoTableViewController: UITableViewController {
     let serviceProduto = ServiceProduto()
     var todosOsProdutos: [Produto] = []
     var produtosDaCategoria: [Produto] = []
+    var produtosDaCategoriaLimite: [Produto] = []
     var imagensProduto: [UIImage] = []
     var categoria: Categoria? = nil
     var tempoDoTimeConsulta = 3
     var tempoDoTimeTableView = 12
+    var limite = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,11 @@ class ProdutoTableViewController: UITableViewController {
                     }
                 }
                 
+                var index = 0
+                while index < self.limite {
+                    self.produtosDaCategoriaLimite.append(self.produtosDaCategoria[index])
+                    index += 1
+                }
                 
                 self.carregarImagens()
                 
@@ -78,7 +85,7 @@ class ProdutoTableViewController: UITableViewController {
                 if self.tempoDoTimeTableView == 0 {
                     timer.invalidate()
                    
-                    if self.produtosDaCategoria.count < 1{
+                    if self.produtosDaCategoriaLimite.count < 1{
                         //Alerta
                         let alertaController = UIAlertController(title: "Categoria sem produtos",
                                                                  message: "Volte outra vez mais tarde :)", preferredStyle: .alert)
@@ -98,7 +105,7 @@ class ProdutoTableViewController: UITableViewController {
             
         }
         
-        return self.produtosDaCategoria.count
+        return self.produtosDaCategoriaLimite.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,14 +114,14 @@ class ProdutoTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "celulaProduto", for: indexPath) as! ProdutoCell
         
-        cell.nomeProduto.text = produtosDaCategoria[indexPath.row].nome
+        cell.nomeProduto.text = produtosDaCategoriaLimite[indexPath.row].nome
         
-        let deCortado: NSMutableAttributedString =  NSMutableAttributedString(string: String("De: \(produtosDaCategoria[indexPath.row].precoDe)"))
+        let deCortado: NSMutableAttributedString =  NSMutableAttributedString(string: String("De: \(produtosDaCategoriaLimite[indexPath.row].precoDe)"))
         deCortado.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, deCortado.length))
         
         cell.de.attributedText = deCortado
         
-        if let porArredondado: Double = arredonda(valor: produtosDaCategoria[indexPath.row].precoPor, casasdecimais: 2){
+        if let porArredondado: Double = arredonda(valor: produtosDaCategoriaLimite[indexPath.row].precoPor, casasdecimais: 2){
             cell.por.text = String("Por: \(porArredondado)")
         }
         
@@ -131,11 +138,38 @@ class ProdutoTableViewController: UITableViewController {
         return cell
     }
     
+    //Metodo que captura a celula selecionada
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let produto = produtosDaCategoria[indexPath.row]
+        let produto = produtosDaCategoriaLimite[indexPath.row]
         
         self.performSegue(withIdentifier: "categoriaParaProduto", sender: produto)
+    }
+    
+    //Metodo que vai fazer o load quanto o usuario alcançar 0 limite de itens permitido
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == self.produtosDaCategoriaLimite.count - 1 {
+            if self.produtosDaCategoriaLimite.count < self.produtosDaCategoria.count {
+                
+                var index = self.produtosDaCategoriaLimite.count
+                self.limite = index + 20
+                if self.produtosDaCategoria.count < self.limite {
+                    self.limite = self.produtosDaCategoria.count
+                }
+                
+                while index < self.limite {
+                    self.produtosDaCategoriaLimite.append(self.produtosDaCategoria[index])
+                    index = index + 1
+                }
+                self.perform(#selector(loadTable), with: nil, afterDelay: 1.5)
+            }
+        }
+        
+    }
+    
+    @objc func loadTable() {
+        self.tableView.reloadData()
     }
     
     //metodo usado para setar os dados na outra "tela" classe
@@ -155,7 +189,7 @@ class ProdutoTableViewController: UITableViewController {
     //Produtos
     private func carregarImagens(){
         
-        if self.produtosDaCategoria.count > 0 {
+        if self.produtosDaCategoriaLimite.count > 0 {
             
             self.imagensProduto = []
             
@@ -168,7 +202,7 @@ class ProdutoTableViewController: UITableViewController {
             var cont4 = 0
             var cont5 = 0
             
-            for i in 0..<self.produtosDaCategoria.count{
+            for i in 0..<self.produtosDaCategoriaLimite.count{
                 
                 cont1 += 1
                 
@@ -180,7 +214,7 @@ class ProdutoTableViewController: UITableViewController {
                     
                 }else{
                     cont3 += 1
-                    if let url = URL(string: self.produtosDaCategoria[i].urlImagem){
+                    if let url = URL(string: self.produtosDaCategoriaLimite[i].urlImagem){
                         cont4 += 1
                         //Aqui é carregada a imagem
                         let imageView = UIImageView()
@@ -214,7 +248,15 @@ class ProdutoTableViewController: UITableViewController {
             print("Cont5 \(cont5)")
             print("Tamanho do array de imagens \(self.imagensProduto.count)")
             print("tamanho do produtoDasCategoria \(self.produtosDaCategoria.count)")
+            print("tamanho do produtoDasCategoriaLimite \(self.produtosDaCategoriaLimite.count)")
         }
+    }
+    
+    // esse metodo e chamado SEMRPE que a tela for apresentada ao usuario
+    override func viewWillAppear(_ animated: Bool) {
+        
+        //com esse metodo a gente "esconde" a TabBar da tela
+        self.tabBarController?.tabBar.isHidden = true
     }
 
     //Arredonda numero
