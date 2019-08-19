@@ -320,24 +320,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             for i in 0..<self.categorias.count{
                 
                 if let url = URL(string: self.categorias[i].urlImagem!){
+                    
+                    //Aqui é carregada a imagem
+                    let imageView = UIImageView()
+                    imageView.sd_setImage(with: url) { (image, erro, cache, url) in
                         
-                        //Aqui é carregada a imagem
-                        let imageView = UIImageView()
-                        imageView.sd_setImage(with: url) { (image, erro, cache, url) in
-                            
-                            if erro == nil {
-                                self.imagensCategorias.append(image!)
-                            }else{
-                                let semImagem = #imageLiteral(resourceName: "Foto indisponivel")
-                                self.imagensCategorias.append(semImagem)
-                            }
-                            
+                        if erro == nil {
+                            self.imagensCategorias.append(image!)
+                        }else{
+                            let semImagem = #imageLiteral(resourceName: "Foto indisponivel")
+                            self.imagensCategorias.append(semImagem)
                         }
                         
                     }
+                    
+                }
                 
             }
-
+            
         }
     }
     

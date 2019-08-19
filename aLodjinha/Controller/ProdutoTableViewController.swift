@@ -131,16 +131,8 @@ class ProdutoTableViewController: UIViewController, UITableViewDelegate, UITable
             cell.por.text = String("Por: \(porArredondado)")
         }
         
-        /*
-        let image: UIImage? = self.imagensProduto[indexPath.row]
-        if image != nil {
-            cell.imageProduto.image = image
-        }*/
- 
-        //Deixei com esta imagem porque não consegui ajeitar o bug
-        //Amanha vou tentar concerta to morto... travei
-        cell.imageProduto.image = #imageLiteral(resourceName: "Foto indisponivel")
-    
+        cell.imageProduto.image = self.imagensProduto[indexPath.row]
+        
         return cell
     }
     
@@ -204,59 +196,30 @@ class ProdutoTableViewController: UIViewController, UITableViewDelegate, UITable
             
             self.imagensProduto = []
             
-            //tem um bug aqui onde o numero de fotos carregadas é 23 e o numero de produtos 25
-            //com o avançar da hora ontem e tantas tentativas eu travei, por isso resolvi mandar assim para não atrasar o projeto
-            //mas não esta quebrando eu deixei dando GET em um foto estatica la no datatable
-            var cont1 = 0
-            var cont2 = 0
-            var cont3 = 0
-            var cont4 = 0
-            var cont5 = 0
-            
             for i in 0..<self.produtosDaCategoriaLimite.count{
                 
-                cont1 += 1
-                
-                if imagensProduto.count < i-1 {
-                    
-                    cont2 += 1
-                    let semImagem = #imageLiteral(resourceName: "Foto indisponivel")
-                    self.imagensProduto.append(semImagem)
-                    
-                }else{
-                    cont3 += 1
-                    if let url = URL(string: self.produtosDaCategoriaLimite[i].urlImagem){
-                        cont4 += 1
-                        //Aqui é carregada a imagem
-                        let imageView = UIImageView()
-                        imageView.sd_setImage(with: url) { (image, erro, cache, url) in
-                            
-                            cont5 += 1
-                            
-                            if let imageRecuperada = image {
-                                self.imagensProduto.append(imageRecuperada)
-                            }else{
-                                
-                                let semImagem = #imageLiteral(resourceName: "Foto indisponivel")
-                                self.imagensProduto.append(semImagem)
-                            }
-                            
+                if let url = URL(string: self.produtosDaCategoriaLimite[i].urlImagem){
+                   
+                    //Aqui é carregada a imagem
+                    let imageView = UIImageView()
+                    imageView.sd_setImage(with: url) { (image, erro, cache, url) in
+                        
+                        if let imageRecuperada = image {
+                            self.imagensProduto.append(imageRecuperada)
                         }
                         
-                    }else{
-                        let semImagem = #imageLiteral(resourceName: "Foto indisponivel")
-                        self.imagensProduto.append(semImagem)
                     }
                     
                 }
-
+                
+                
+                if self.imagensProduto.count == i {
+                    let semImagem = #imageLiteral(resourceName: "Foto indisponivel")
+                    self.imagensProduto.append(semImagem)
+                }
+                
             }
             
-            print("Cont1 \(cont1)")
-            print("Cont2 \(cont2)")
-            print("Cont3 \(cont3)")
-            print("Cont4 \(cont4)")
-            print("Cont5 \(cont5)")
             print("Tamanho do array de imagens \(self.imagensProduto.count)")
             print("tamanho do produtoDasCategoria \(self.produtosDaCategoria.count)")
             print("tamanho do produtoDasCategoriaLimite \(self.produtosDaCategoriaLimite.count)")
