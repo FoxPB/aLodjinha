@@ -468,44 +468,44 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do produto com uma descrição grandona" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6R-Xy-sLq">
-                                                    <rect key="frame" x="95" y="11" width="281" height="47"/>
+                                                    <rect key="frame" x="95" y="5" width="281" height="58.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="w6R-Xy-sLq" secondAttribute="height" multiplier="281:47" id="qPJ-PR-z4X"/>
+                                                        <constraint firstAttribute="width" secondItem="w6R-Xy-sLq" secondAttribute="height" multiplier="243:51" id="qPJ-PR-z4X"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="De: 999,99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fX6-gZ-Fmv">
-                                                    <rect key="frame" x="95" y="64" width="64" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="fX6-gZ-Fmv" secondAttribute="height" multiplier="64:15" id="bKp-6I-jg9"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por: 999,99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMm-7L-gBn">
-                                                    <rect key="frame" x="262" y="60" width="114" height="24"/>
+                                                    <rect key="frame" x="235.5" y="60" width="140.5" height="26"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="WMm-7L-gBn" secondAttribute="height" multiplier="19:4" id="w9g-GV-En3"/>
+                                                        <constraint firstAttribute="width" secondItem="WMm-7L-gBn" secondAttribute="height" multiplier="69:13" id="3Rl-T8-moU"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" red="0.94315254690000005" green="0.31362628939999998" blue="0.1440674663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="De: 999,99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fX6-gZ-Fmv">
+                                                    <rect key="frame" x="95" y="71" width="82" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="fX6-gZ-Fmv" secondAttribute="height" multiplier="82:15" id="TF2-nf-FNk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="WMm-7L-gBn" firstAttribute="top" secondItem="w6R-Xy-sLq" secondAttribute="bottom" constant="2" id="A4F-4H-1OF"/>
-                                                <constraint firstItem="fX6-gZ-Fmv" firstAttribute="top" secondItem="w6R-Xy-sLq" secondAttribute="bottom" constant="6" id="N6E-Ac-XFs"/>
-                                                <constraint firstItem="fX6-gZ-Fmv" firstAttribute="bottom" secondItem="ZqZ-sQ-ab3" secondAttribute="bottomMargin" id="Up1-I3-q3C"/>
-                                                <constraint firstItem="fX6-gZ-Fmv" firstAttribute="leading" secondItem="XYe-GP-zZb" secondAttribute="trailing" constant="8" id="ZaY-AH-GV8"/>
-                                                <constraint firstItem="w6R-Xy-sLq" firstAttribute="top" secondItem="ZqZ-sQ-ab3" secondAttribute="top" constant="11" id="dOf-Ft-e4D"/>
+                                                <constraint firstItem="fX6-gZ-Fmv" firstAttribute="top" secondItem="w6R-Xy-sLq" secondAttribute="bottom" constant="7.5" id="9wx-bx-xaM"/>
+                                                <constraint firstAttribute="bottom" secondItem="fX6-gZ-Fmv" secondAttribute="bottom" constant="5.5" id="EDa-Ma-E2S"/>
+                                                <constraint firstItem="fX6-gZ-Fmv" firstAttribute="leading" secondItem="XYe-GP-zZb" secondAttribute="trailing" constant="8" id="FlW-SA-Szj"/>
+                                                <constraint firstItem="WMm-7L-gBn" firstAttribute="top" secondItem="ZqZ-sQ-ab3" secondAttribute="top" constant="60" id="VCr-gw-Ela"/>
+                                                <constraint firstAttribute="bottom" secondItem="WMm-7L-gBn" secondAttribute="bottom" constant="5.5" id="YhJ-kN-dQj"/>
+                                                <constraint firstItem="w6R-Xy-sLq" firstAttribute="top" secondItem="ZqZ-sQ-ab3" secondAttribute="top" constant="5" id="dOf-Ft-e4D"/>
                                                 <constraint firstItem="w6R-Xy-sLq" firstAttribute="leading" secondItem="XYe-GP-zZb" secondAttribute="trailing" constant="8" id="e3s-8U-y8H"/>
                                                 <constraint firstAttribute="bottom" secondItem="XYe-GP-zZb" secondAttribute="bottom" constant="5" id="fgW-oj-y9I"/>
                                                 <constraint firstAttribute="trailing" secondItem="w6R-Xy-sLq" secondAttribute="trailing" id="fiN-DX-03l"/>
                                                 <constraint firstItem="XYe-GP-zZb" firstAttribute="top" secondItem="ZqZ-sQ-ab3" secondAttribute="top" constant="5" id="i86-kB-mmp"/>
-                                                <constraint firstAttribute="bottom" secondItem="WMm-7L-gBn" secondAttribute="bottom" constant="5.5" id="jm0-0s-0X1"/>
                                                 <constraint firstItem="XYe-GP-zZb" firstAttribute="leading" secondItem="ZqZ-sQ-ab3" secondAttribute="leading" constant="8" id="qzA-WR-4Po"/>
                                                 <constraint firstAttribute="trailing" secondItem="WMm-7L-gBn" secondAttribute="trailing" id="x6D-gb-nS9"/>
                                             </constraints>
@@ -548,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qk0-R3-Pam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3019" y="-149"/>
+            <point key="canvasLocation" x="3018.840579710145" y="-149.33035714285714"/>
         </scene>
         <!--Data Banner View Controller-->
         <scene sceneID="1zE-mC-uQn">
