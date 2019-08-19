@@ -51,10 +51,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08 de Agosto de 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po0-QU-Ri3">
-                                <rect key="frame" x="123" y="690" width="168" height="21"/>
+                                <rect key="frame" x="118" y="690" width="178" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="QPd-ey-Wb6"/>
-                                    <constraint firstAttribute="width" constant="168" id="eKD-YA-HgD"/>
+                                    <constraint firstAttribute="width" constant="178" id="eKD-YA-HgD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -385,19 +385,20 @@
                                     <constraint firstItem="jXK-uD-Okz" firstAttribute="leading" secondItem="7WP-my-0hU" secondAttribute="leading" constant="8" id="nUP-Gc-45O"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="517-DD-B9T">
-                                <rect key="frame" x="189" y="276" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="517-DD-B9T">
+                                <rect key="frame" x="188.5" y="385.5" width="37" height="37"/>
                                 <color key="color" red="0.41400757430000001" green="0.2436960936" blue="0.56820958850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="517-DD-B9T" firstAttribute="centerY" secondItem="DyI-bD-aJ5" secondAttribute="centerY" id="28c-L4-CNs"/>
                             <constraint firstItem="Kcd-ZD-oE0" firstAttribute="leading" secondItem="gMm-Ug-MLr" secondAttribute="leading" constant="20" id="75h-no-sg7"/>
                             <constraint firstItem="7WP-my-0hU" firstAttribute="top" secondItem="eSO-8q-Tnt" secondAttribute="bottom" constant="9" id="9Jw-eI-IRG"/>
                             <constraint firstItem="TBO-M7-EQ9" firstAttribute="top" secondItem="yYN-94-9ra" secondAttribute="bottom" constant="8" id="D5X-d2-Shn"/>
                             <constraint firstItem="7WP-my-0hU" firstAttribute="leading" secondItem="gMm-Ug-MLr" secondAttribute="leading" id="DMh-Kp-XtE"/>
                             <constraint firstItem="gMm-Ug-MLr" firstAttribute="trailing" secondItem="zA9-9v-RrE" secondAttribute="trailing" constant="20" id="Dhq-Bi-SKQ"/>
+                            <constraint firstItem="517-DD-B9T" firstAttribute="centerX" secondItem="DyI-bD-aJ5" secondAttribute="centerX" id="ETp-ff-79c"/>
                             <constraint firstItem="eSO-8q-Tnt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TBO-M7-EQ9" secondAttribute="trailing" constant="8" symbolic="YES" id="GdF-Xr-bec"/>
                             <constraint firstAttribute="trailing" secondItem="yYN-94-9ra" secondAttribute="trailing" id="HCx-Gd-Rk8"/>
                             <constraint firstItem="7ip-38-sKC" firstAttribute="top" secondItem="gMm-Ug-MLr" secondAttribute="top" constant="5" id="Hwh-oi-FR0"/>

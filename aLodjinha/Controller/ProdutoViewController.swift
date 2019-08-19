@@ -23,9 +23,7 @@ class ProdutoViewController: UIViewController {
     
     
     @IBAction func btnReservarAction(_ sender: Any) {
-        
         reserva()
-        
     }
     
     override func viewDidLoad() {
@@ -88,6 +86,7 @@ class ProdutoViewController: UIViewController {
         
     }
     
+    //Faz a reserva e retorna o usuario para Home
     private func reserva(){
         
         self.desabilitaBotão()

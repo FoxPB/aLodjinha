@@ -25,6 +25,7 @@ class ProdutoTableViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.isHidden = true
         self.showLoading.isHidden = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -51,10 +52,14 @@ class ProdutoTableViewController: UIViewController, UITableViewDelegate, UITable
                     }
                 }
                 
-                var index = 0
-                while index < self.limite {
-                    self.produtosDaCategoriaLimite.append(self.produtosDaCategoria[index])
-                    index += 1
+                if self.produtosDaCategoria.count > 0 {
+                    
+                    self.tableView.isHidden = false
+                    var index = 0
+                    while index < self.limite {
+                        self.produtosDaCategoriaLimite.append(self.produtosDaCategoria[index])
+                        index += 1
+                    }
                 }
                 
                 self.carregarImagens()
@@ -220,9 +225,6 @@ class ProdutoTableViewController: UIViewController, UITableViewDelegate, UITable
                 
             }
             
-            print("Tamanho do array de imagens \(self.imagensProduto.count)")
-            print("tamanho do produtoDasCategoria \(self.produtosDaCategoria.count)")
-            print("tamanho do produtoDasCategoriaLimite \(self.produtosDaCategoriaLimite.count)")
         }
     }
     

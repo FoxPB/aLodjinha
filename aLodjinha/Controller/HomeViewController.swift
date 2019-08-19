@@ -350,10 +350,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // esse metodo e chamado SEMRPE que a tela for apresentada ao usuario
     override func viewWillAppear(_ animated: Bool) {
         
-        self.carregarImagensBanners()
-        self.carregarImagensMaisVendidos()
         //com esse metodo "mostra" a TabBar da tela
         self.tabBarController?.tabBar.isHidden = false
+        
+        //fazendo a consulta no Banco a partir do Service e "poluindo" o mesmo kkkk
+        self.serviceBanner.consultarBanner { (banners) in
+            self.banners = banners
+        }
+        
+        //fazendo a consulta no Banco a partir do Service
+        self.serviceProduto.consultarMaisVendidos { (produtos) in
+            self.produtosMaisVendidos = produtos
+        }
+        
+        //fazendo a consulta no Banco a partir do Service
+        self.serviceCategoria.consultarCategoria{ (categorias) in
+            self.categorias = categorias
+        }
+        
+        self.carregarImagensBanners()
+        self.carregarImagensMaisVendidos()
+        self.carregarImagensCategorias()
         
     }
     
